@@ -3,7 +3,7 @@ import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
 const responsive = {
     desktop: {
-        breakpoint: { max: 3000, min: 1024 },
+        breakpoint: { max: 6000, min: 1024 },
         items: 1,
         slidesToSlide: 1 // optional, default to 1.
       },
@@ -79,15 +79,21 @@ const CarouselObject = ({deptName, facultyList, carouselSPeed}) => {
             {facultyList.map((item, index)=>{
 
               const imgpath = item.pic_name !== null ? "http://localhost/qsrv/img/"+item.pic_name : 'images/blank.webp';
+              // console.log(imgpath);
                 return (
-                    <div key={index} className="flex flex-row justify-start">
-                      <img src={imgpath} height={70} width={70} className="rounded-full object-cover" />
+                  <div className="w-full" key={item.faculty_idx}>
+                    <div  className="flex flex-row justify-start items-center">
+                      
+                      <div className={`h-36 w-36 rounded-full`}>
+                          <img src={imgpath} className="h-full w-full rounded-full object-cover object-top" />
+                      </div>
                       <div className="flex flex-col ml-6">
                         <p className="text-2xl font-semibold">{item.name}</p>
                         <ColoredText stat={item.status} />
                       </div>
 
                     </div>
+                  </div>
                 );
             })}
       
@@ -96,7 +102,7 @@ const CarouselObject = ({deptName, facultyList, carouselSPeed}) => {
     }
 
     return (
-      <div>
+      <div className="my-4">
         <h2 className="text-2xl text-black font-bold text-center mb-3">{deptName}</h2>
         {/* <button className="text-2xl p-3 border border-black" onClick={nextDept}>next dept</button> */}
        <CarouselItem />

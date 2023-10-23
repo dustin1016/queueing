@@ -1,5 +1,6 @@
 import React, {useRef, useState, useEffect} from 'react';
 import CarouselObject from './CarouselObject';
+import Loader from './Loader';
 const departments = [
     {id:1,name:"Accountancy"},
     {id:2,name:"FM/HRM/Business Economics"},
@@ -26,9 +27,14 @@ const ListFaculty = () => {
 
 
       useEffect(() => {
-        if (!hasData){
+       
             fetchList();   
-        }
+            //fetch data every 5 minutes
+            const intervalId = setInterval(fetchList, 300000);
+            
+
+            // Clean up the interval when the component unmounts
+            return () => clearInterval(intervalId);
       }, []);
 
      function updateData() {
@@ -40,10 +46,14 @@ const ListFaculty = () => {
         //update the list of faculty array
         const filter = facultyList.filter(x=>x.dpt_index === activeDept);
         setFilteredList(filter);
-        setHasData(true)
+        setTimeout(() => {
+          
+          setHasData(true)
+        }, 2000);
       }
 
       const fetchList = async()=> {
+        setHasData(false)
         try {
             const response = await fetch('http://localhost/qsrv/data.php/faculties');
             const jsonData = await response.json();
@@ -76,7 +86,6 @@ const ListFaculty = () => {
       const CarouselGroup = () => {
         return (
             departments.map((item, index)=>{
-                
                 const filterList = facultyList.filter(x=>x.dpt_index === item.id);
                 return (
                     <CarouselObject deptName={item.name} facultyList={filterList} carouselSPeed={5000+(item.id * 10)} key={index} />
@@ -90,7 +99,7 @@ const ListFaculty = () => {
         <div className='bg-gradient-to-r from-amber-400 to-amber-600  h-screen px-3 pt-3'>
             {/* {CarouselObject(nextDept, deptName, filteredList)} */}
 
-            {hasData ? <CarouselGroup /> : <p>has no  data</p>}
+            {hasData ? <CarouselGroup /> : <Loader />}
         </div>
       );
   }

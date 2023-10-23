@@ -60,17 +60,16 @@ const Faculty = () => {
                   </option>
                 ))}
               </select>
-              
             </div>
           );
       }
 
       const FacultyListCard = React.memo(({ id, name, img }) => {
-        const imgpath = img !== null ? "http://localhost/qsrv/img/"+img : 'images/blank.webp';
+        // const imgpath = img !== null ? "http://localhost/qsrv/img/"+img : 'images/blank.webp';
        
         return (
             <div onClick={()=>handleFacultyClick(id)} className=" border-b cursor-pointer hover:bg-slate-500 border-black w-full p-3 flex flex-row items-center">
-                <img src={imgpath} height={50} width={50} className="rounded-full object-cover" />
+                {/* <img src={imgpath} height={50} width={50} className="rounded-full object-cover" /> */}
                 <p className="text-lg ml-3">{name}</p>
             </div>
         );
