@@ -49,3 +49,23 @@ You can check the status of the service to ensure it's running:
 
 sudo systemctl status react-auto-start
 If everything was set up correctly, your React project's build process should automatically start when your Ubuntu machine boots up. You can also stop, restart, or check the status of the service using systemctl.
+
+
+× react-start.service - React Auto Start Service
+     Loaded: loaded (/etc/systemd/system/react-start.service; enabled; preset: enabled)
+     Active: failed (Result: exit-code) since Thu 2023-10-26 16:13:59 +08; 1h 34min ago
+   Duration: 8ms
+    Process: 752 ExecStart=/usr/bin/npm run build (code=exited, status=200/CHDIR)
+   Main PID: 752 (code=exited, status=200/CHDIR)
+        CPU: 8ms
+
+Oct 26 16:13:59 ubuntu-Aspire-XC-710 systemd[1]: react-start.service: Scheduled restart job, restart counter is at 4.
+Oct 26 16:13:59 ubuntu-Aspire-XC-710 systemd[1]: Stopped react-start.service - React Auto Start Service.
+Oct 26 16:13:59 ubuntu-Aspire-XC-710 systemd[1]: Started react-start.service - React Auto Start Service.
+Oct 26 16:13:59 ubuntu-Aspire-XC-710 systemd[1]: react-start.service: Main process exited, code=exited, status=200/CHDIR
+Oct 26 16:13:59 ubuntu-Aspire-XC-710 systemd[1]: react-start.service: Failed with result 'exit-code'.
+Oct 26 16:13:59 ubuntu-Aspire-XC-710 systemd[1]: react-start.service: Scheduled restart job, restart counter is at 5.
+Oct 26 16:13:59 ubuntu-Aspire-XC-710 systemd[1]: Stopped react-start.service - React Auto Start Service.
+Oct 26 16:13:59 ubuntu-Aspire-XC-710 systemd[1]: react-start.service: Start request repeated too quickly.
+Oct 26 16:13:59 ubuntu-Aspire-XC-710 systemd[1]: react-start.service: Failed with result 'exit-code'.
+Oct 26 16:13:59 ubuntu-Aspire-XC-710 systemd[1]: Failed to start react-start.service - React Auto Start Service.
