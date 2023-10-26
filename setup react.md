@@ -4,13 +4,13 @@ Create a Service File:
 Open a terminal and create a systemd service file. Use a text editor to create a new service file for your React project. Replace <your-username> and <your-react-project> with your actual username and project details.
 
 bash
-Copy code
+
 sudo nano /etc/systemd/system/react-auto-start.service
 Edit the Service File:
 Inside the text editor, add the following content to the service file:
 
 ini
-Copy code
+
 [Unit]
 Description=React Auto Start Service
 
@@ -35,20 +35,17 @@ In Nano, you can save and exit by pressing Ctrl+O, then Enter, and finally Ctrl+
 Reload systemd:
 After creating the service file, reload systemd to recognize the new service:
 
-bash
-Copy code
+
 sudo systemctl daemon-reload
 Enable and Start the Service:
 Enable the service to start on boot and start it:
 
-bash
-Copy code
+
 sudo systemctl enable react-auto-start
 sudo systemctl start react-auto-start
 Check the Status:
 You can check the status of the service to ensure it's running:
 
-bash
-Copy code
+
 sudo systemctl status react-auto-start
 If everything was set up correctly, your React project's build process should automatically start when your Ubuntu machine boots up. You can also stop, restart, or check the status of the service using systemctl.
