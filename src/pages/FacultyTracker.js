@@ -16,7 +16,7 @@ const FacultyTracker = () =>{
 
       const fetchList = async()=> {
         try {
-            const response = await fetch('http://localhost/qsrv/data.php/faculties');
+            const response = await fetch('http://10.125.77.143/qsrv/data.php/faculties');
             const jsonData = await response.json();
             // setData(jsonData);
            

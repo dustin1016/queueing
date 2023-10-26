@@ -11,7 +11,8 @@ const Dashboard = () => {
     
     const fetchQueue = async () => {
       try {
-        const response = await fetch('http://localhost/qsrv/data.php/getActiveQ');
+    
+        const response = await fetch('http://10.125.77.143/qsrv/data.php/getActiveQ');
         const jsonData = await response.json();
         // setData(jsonData);
        
@@ -64,7 +65,7 @@ const Dashboard = () => {
       //box UI to show current numbers being served
       const n = queue.find(x=>x.window === window);
         return (
-          <div className='p-3 border rounded-t-md h-72 w-72 border-gray-600 text-center flex flex-col'>
+          <div className='p-3 border rounded-t-md lg:w-60 lg:h-60 xl:h-72 xl:w-72 border-gray-600 text-center flex flex-col'>
               <p className='text-4xl font-bold'>Window {window}</p>
               <hr className='border-y border-gray-900 my-4' />
               <p className='text-8xl font-bold'>
@@ -84,10 +85,10 @@ const Dashboard = () => {
               
             
             </div>
-              <div className='flex-1 w-[70%] p-3 fixed top-28 right-0'>
+              <div className='flex-1 w-[70%] p-3 fixed lg:top-8 xl:top-12 2xl:top-28 right-0'>
               <div className='flex flex-row mb-6 items-center justify-center'>
                 <img src='images/cba-logo.png' height={150} width={150} />
-                <h2 className='text-center text-6xl font-bold ml-6'>College of Business and Accountancy</h2>
+                <h2 className='text-center lg:text-2xl xl:text-6xl font-bold ml-6'>College of Business and Accountancy</h2>
               </div>
                 <p className='text-6xl font-bold text-center text-slate-800 my-6'>NOW SERVING:</p>
                 <div className='flex flex-row justify-evenly'>
