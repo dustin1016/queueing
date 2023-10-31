@@ -51,21 +51,29 @@ sudo systemctl status react-auto-start
 If everything was set up correctly, your React project's build process should automatically start when your Ubuntu machine boots up. You can also stop, restart, or check the status of the service using systemctl.
 
 
-× react-start.service - React Auto Start Service
-     Loaded: loaded (/etc/systemd/system/react-start.service; enabled; preset: enabled)
-     Active: failed (Result: exit-code) since Thu 2023-10-26 16:13:59 +08; 1h 34min ago
-   Duration: 8ms
-    Process: 752 ExecStart=/usr/bin/npm run build (code=exited, status=200/CHDIR)
-   Main PID: 752 (code=exited, status=200/CHDIR)
-        CPU: 8ms
 
-Oct 26 16:13:59 ubuntu-Aspire-XC-710 systemd[1]: react-start.service: Scheduled restart job, restart counter is at 4.
-Oct 26 16:13:59 ubuntu-Aspire-XC-710 systemd[1]: Stopped react-start.service - React Auto Start Service.
-Oct 26 16:13:59 ubuntu-Aspire-XC-710 systemd[1]: Started react-start.service - React Auto Start Service.
-Oct 26 16:13:59 ubuntu-Aspire-XC-710 systemd[1]: react-start.service: Main process exited, code=exited, status=200/CHDIR
-Oct 26 16:13:59 ubuntu-Aspire-XC-710 systemd[1]: react-start.service: Failed with result 'exit-code'.
-Oct 26 16:13:59 ubuntu-Aspire-XC-710 systemd[1]: react-start.service: Scheduled restart job, restart counter is at 5.
-Oct 26 16:13:59 ubuntu-Aspire-XC-710 systemd[1]: Stopped react-start.service - React Auto Start Service.
-Oct 26 16:13:59 ubuntu-Aspire-XC-710 systemd[1]: react-start.service: Start request repeated too quickly.
-Oct 26 16:13:59 ubuntu-Aspire-XC-710 systemd[1]: react-start.service: Failed with result 'exit-code'.
-Oct 26 16:13:59 ubuntu-Aspire-XC-710 systemd[1]: Failed to start react-start.service - React Auto Start Service.
+<------------------------------------------->
+The error message "/usr/bin/npm is not a directory" suggests that systemd is unable to locate the npm binary at the specified path. This could be due to a few reasons:
+
+NPM Not Installed Globally: The npm command might not be installed globally on your system or is not available in the /usr/bin/ directory. Ensure that npm is installed on your system and that it's available in a directory that's in your system's PATH.
+
+You can find the location of the npm binary by running:
+
+
+which npm
+This will return the path to the npm binary. Use this path in your service file.
+
+Incorrect Binary Path in Service File: Double-check that the ExecStart line in your systemd service file points to the correct path for the npm binary. The path should be the actual location of the npm binary on your system.
+
+Update the ExecStart line in your service file to point to the correct path of the npm binary, for example:
+
+[Service]
+ExecStart=/usr/local/bin/npm start
+PATH Environment Variable: It's also possible that the PATH environment variable is not properly set for your systemd service. You can explicitly set the PATH in your service file to ensure that the npm binary can be found. Add the following line to your service file:
+
+
+[Service]
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+Make sure that this PATH environment variable points to the directories where npm and its dependencies are located on your system.
+
+After making the necessary adjustments, reload systemd with sudo systemctl daemon-reload, then restart the service with sudo systemctl restart react-auto-start, and check the status with sudo systemctl status react-auto-start to see if the issue is resolved.
