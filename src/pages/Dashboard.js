@@ -12,7 +12,7 @@ const Dashboard = () => {
     const fetchQueue = async () => {
       try {
     
-        const response = await fetch('http://10.125.77.143/qsrv/data.php/getActiveQ');
+        const response = await fetch('http://localhost/qsrv/data.php/getActiveQ');
         const jsonData = await response.json();
         // setData(jsonData);
        
