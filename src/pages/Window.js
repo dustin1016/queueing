@@ -2,6 +2,12 @@ import React, {useState, useEffect} from "react";
 import Modal from 'react-modal';
 import { useLocation } from 'react-router-dom';
 
+function isNumeric(input) {
+  // Use the JavaScript built-in function isNaN() to check if the input is numeric
+  // isNaN() returns true if the input is NaN (Not a Number), false otherwise
+  return !isNaN(input);
+}
+
 export default function Window() {
 
   
@@ -11,9 +17,11 @@ export default function Window() {
       //variable to hold current number being served by window
       const [myNum, setMyNum]= useState(null);
       const [index, setIndex] = useState(null);
-      const [myWindow, setMyWindow] = useState(null);
+      const [myWindow, setMyWindow] = useState(1); //default window number
       const [errorMsg, setErrorMsg] = useState(null);
       const [numServed, setNumServed] = useState(false);
+      const [showWindow, setShowWindow] = useState(true);
+      const [isNumber, setIsNumber] = useState(true);
        // Use the useLocation hook to get the current location
        const location = useLocation();
   // Parse the query parameters from the location
@@ -22,19 +30,10 @@ export default function Window() {
   // Get the value of the 'window' query parameter
   const windowValue = queryParams.get('window');
         useEffect(() => {
-       
-          if (myWindow === null){
          
-
-            
-            setMyWindow(windowValue);
-            
+          if (windowValue !== null){        
+            setMyWindow(windowValue);     
           }
-
-          if (myNum === null){
-            fetchNum(1);
-          }
-
        
       
         }, []);
@@ -51,7 +50,7 @@ export default function Window() {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
               },
-              body: JSON.stringify({window: windowValue, cmd: cmd})
+              body: JSON.stringify({window: myWindow, cmd: cmd})
             })
 
             const jsonData = await response.json();
@@ -85,7 +84,7 @@ export default function Window() {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
               },
-              body: JSON.stringify({window: windowValue, index: index})
+              body: JSON.stringify({window: myWindow, index: index})
             })
 
             const jsonData = await response.json();
@@ -123,13 +122,46 @@ export default function Window() {
           </button>
           )
         }
+    
+      
+          const handleButtonClick = () => {
+            // Logic to update the number value (for example, incrementing it by 1)
+            const inputValue = parseInt(document.getElementById('windowNumberInput').value);
+            if(isNumeric(inputValue)){
+              setIsNumber(true);
+              setMyWindow(inputValue);
+            } else {
+              setIsNumber(false)
+            }
+         
+          };
 
+    
+
+        const SetWindowWidget = () => {
+
+          return (
+          
+                        <div className="w-32 flex flex-col text-center p-3">
+                {/* Input field to enter the number */}
+                <input type="text" className="mb-3 p-2 border border-gray-500 rounded-md"   id="windowNumberInput" />
+
+                {/* Button to update the number value */}
+                <button onClick={handleButtonClick} className="mb-3 border border-blue-800 bg-blue-600 hover:bg-blue-400 text-white rounded-md p-2 text-sm">Set Window Number</button>
+
+                {!isNumber && <p className="text-red-700 text-sm">Input Numbers Only</p>}
+              </div>
+            
+          )
+        }
 
      
         //UI
         return(
-          <>
-            <div className="container w-64 mx-auto border mt-5 rounded-md border-yellow-500 p-3 text-center">
+       <div>
+        <h2 className="text-center">Window Number: {myWindow}</h2>
+           <div className="container w-3/4 mx-auto  mt-5 flex items-center justify-center">
+            <div className=" border rounded-md border-yellow-500 p-3 text-center">
             {myNum !== null ? 
            <>
            <p className="text-2xl text-black mb-3">
@@ -150,7 +182,10 @@ export default function Window() {
               }
             {myNum === null ? <FetchButton /> : <ServeButton />}
             </div>
-          </>
+
+            {showWindow && <SetWindowWidget />}
+          </div>
+       </div>
         );
 
 
