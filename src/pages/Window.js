@@ -30,7 +30,8 @@ export default function Window() {
   // Get the value of the 'window' query parameter
   const windowValue = queryParams.get('window');
         useEffect(() => {
-         
+          //fetch the number previously being served by the window
+         fetchNum(1);
           if (windowValue !== null){        
             setMyWindow(windowValue);     
           }
@@ -130,6 +131,8 @@ export default function Window() {
             if(isNumeric(inputValue)){
               setIsNumber(true);
               setMyWindow(inputValue);
+              //fetch the number being served for the set window number
+              fetchNum(1);
             } else {
               setIsNumber(false)
             }

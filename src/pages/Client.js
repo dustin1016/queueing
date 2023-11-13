@@ -154,10 +154,10 @@ export default function Client()
         </button>
       </div>
 
-      <div className="flex flex-col md:flex-row justify-evenly text-center p-3">
-        <button onClick={()=>{insertData("Enrollment Concerns")}} className="bg-blue-700/70 text-white text-2xl py-2 px-4 rounded-md">Enrollment<br />Concerns</button>
-        <button onClick={()=>{insertData("Document Request")}} className="bg-blue-700/70 text-white text-2xl py-2 px-4 rounded-md">Document<br />Request</button>
-        <button onClick={()=>{insertData("Other Concerns")}} className="bg-blue-700/70 text-white text-2xl py-2 px-4 rounded-md">Other<br />Concerns</button>
+      <div className="flex flex-col md:flex-row  justify-evenly text-center p-3">
+        <button onClick={()=>{insertData("Enrollment Concerns")}} className="bg-blue-700/70 text-white text-md md:text-2xl py-2 px-4 rounded-md mb-4">Enrollment<br />Concerns</button>
+        <button onClick={()=>{insertData("Document Request")}} className="bg-blue-700/70 text-white text-md md:text-2xl py-2 px-4 rounded-md mb-4">Document<br />Request</button>
+        <button onClick={()=>{insertData("Other Concerns")}} className="bg-blue-700/70 text-white text-md md:text-2xl py-2 px-4 rounded-md">Other<br />Concerns</button>
       </div>
 
       {numToDispense !== null && (

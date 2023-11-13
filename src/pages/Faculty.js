@@ -195,15 +195,15 @@ const Faculty = () => {
           
           const imgpath = selectedFaculty !== null ? "http://192.168.10.186/qsrv/img/"+selectedFaculty?.pic_name : 'images/blank.webp';
         return(
-          <div className="flex flex-row border border-slate-800 rounded-md p-4">
-            <div className="flex flex-col items-center justify-center">
-              <div className="h-72 w-72">
+          <div className="flex flex-col md:flex-row border border-slate-800 rounded-md p-4">
+            <div className="flex flex-col items-center justify-center mb-4">
+              <div className="h-24 w-24 md:h-72 md:w-72">
                 <img src={imgpath} className="object-cover w-full h-full object-top" />
               </div>
-              <p className="text-start text-2xl">{selectedFaculty?.name}</p>
+              <p className="text-center md:text-start text-md md:text-2xl">{selectedFaculty?.name}</p>
             </div>
             <div className="ml-4">
-                <div className="grid grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                   {status.map((item, index)=>{
                     // return(
                     //   <button key={index} onClick={()=>{updateFacultyStatus(item)}} className={`uppercase text-xl p-3 border border-gray hover:border-black rounded-md
