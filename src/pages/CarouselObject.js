@@ -47,7 +47,7 @@ const CarouselObject = ({deptName, facultyList, carouselSPeed}) => {
       }
 
       return (
-        <p className={`text-lg font-semibold ${color} capitalize`}>{stat}</p>
+        <p className={`text-lg mxl:text-2xl font-semibold ${color} capitalize`}>{stat}</p>
       )
     }
 
@@ -78,7 +78,7 @@ const CarouselObject = ({deptName, facultyList, carouselSPeed}) => {
           >
             {facultyList.map((item, index)=>{
 
-              const imgpath = item.pic_name !== null ? "http://localhost/qsrv/img/"+item.pic_name : 'images/blank.webp';
+              const imgpath = item.pic_name !== null ? "http://192.168.10.186/qsrv/img/"+item.pic_name : 'images/blank.webp';
               // console.log(imgpath);
                 return (
                   <div className="w-full" key={item.faculty_idx}>

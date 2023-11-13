@@ -14,21 +14,7 @@ const FacultyTracker = () =>{
         // }
       }, []);
 
-      const fetchList = async()=> {
-        try {
-            const response = await fetch('http://localhost/qsrv/data.php/faculties');
-            const jsonData = await response.json();
-            // setData(jsonData);
-           
-            let data = jsonData.facultyList;
-            if(data.length > 0) {
-                setFacultyList(data);  
-                setIsLoading(false); 
-            }
-          } catch (error) {
-            console.error('Error fetching data:', error);
-          }
-      }
+   
 
       
       return (

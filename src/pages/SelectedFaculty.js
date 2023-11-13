@@ -19,7 +19,7 @@ const SelectedFaculty=({selectedFaculty})=>{
 
     const updateFacultyStatus = async(status) => {
         try {
-          const response = await fetch('http://localhost/qsrv/data.php/updateFacultyStatus',
+          const response = await fetch('http://192.168.10.186/qsrv/data.php/updateFacultyStatus',
           {
             method: 'POST',
             headers: {

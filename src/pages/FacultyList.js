@@ -27,13 +27,13 @@ const ListFaculty = () => {
 
 
       useEffect(() => {
-       
+        
             fetchList();   
             //fetch data every 5 minutes
             const intervalId = setInterval(fetchList, 300000);
             
 
-            // Clean up the interval when the component unmounts
+            // // Clean up the interval when the component unmounts
             return () => clearInterval(intervalId);
       }, []);
 
@@ -55,31 +55,20 @@ const ListFaculty = () => {
       const fetchList = async()=> {
         setHasData(false)
         try {
-            const response = await fetch('http://localhost/qsrv/data.php/faculties');
+            const response = await fetch('http://192.168.10.186/qsrv/data.php/faculties');
             const jsonData = await response.json();
             // setData(jsonData);
            
             let data = jsonData.facultyList;
             if(data.length > 0) {
                 setFacultyList(data);
-                
-                
             }
           } catch (error) {
             console.error('Error fetching data:', error);
           }
       }
 
-      const nextDept=()=>{
-      
-        if (activeDept === 4) {
-                        setActiveDept(1);
-        } else {
-            setActiveDept(activeDept+1);
-            
-        }   
 
-      }
       
 
 

@@ -43,7 +43,7 @@ export default function Window() {
           setErrorMsg(null);
       
           try {
-            const response = await fetch('http://localhost/qsrv/data.php/fetchNum',
+            const response = await fetch('http://192.168.10.186/qsrv/data.php/fetchNum',
              {
               method: 'POST',
               headers: {
@@ -77,7 +77,7 @@ export default function Window() {
           //set the current number's status as served in UI
           setNumServed(true);
           try {
-            const response = await fetch('http://localhost/qsrv/data.php/serveNext',
+            const response = await fetch('http://192.168.10.186/qsrv/data.php/serveNext',
              {
               method: 'POST',
               headers: {
@@ -159,7 +159,7 @@ export default function Window() {
         //UI
         return(
        <div>
-        <h2 className="text-center">Window Number: {myWindow}</h2>
+        <h2 className="text-center text-2xl font-semibold">Window Number: {myWindow}</h2>
            <div className="container w-3/4 mx-auto  mt-5 flex items-center justify-center">
             <div className=" border rounded-md border-yellow-500 p-3 text-center">
             {myNum !== null ? 

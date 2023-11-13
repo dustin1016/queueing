@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import FacultyTracker from './FacultyTracker';
 import Clock from './Clock';
+import Queue from './Queue';
 const Dashboard = () => {
 
   
@@ -9,51 +10,37 @@ const Dashboard = () => {
     const [hasData, setHasData] = useState(false);
     const [facultyFlag, setFacultyFlag] = useState(false);
     
-    const fetchQueue = async () => {
-      try {
+    // const fetchQueue = async () => {
+    //   try {
     
-        const response = await fetch('http://localhost/qsrv/data.php/getActiveQ');
-        const jsonData = await response.json();
-        // setData(jsonData);
+    //     const response = await fetch('http://192.168.10.186/qsrv/data.php/getActiveQ');
+    //     const jsonData = await response.json();
+    //     // setData(jsonData);
        
-        let data = jsonData.queue;
-        if(data.length > 0) {
-          setQueue(data);
-          setTempQueue(data);
-          setHasData(true);
+    //     let data = jsonData.queue;
+    //     if(data.length > 0) {
+    //       setQueue(data);
+    //       setTempQueue(data);
+    //       setHasData(true);
           
-        }
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-    useEffect(() => {
-      fetchQueue();
-      setTimeout(() => {
-        setFacultyFlag(true);
-    }, 2000);
-      const intervalId = setInterval(fetchQueue, 5000);
+    //     }
+    //   } catch (error) {
+    //     console.error('Error fetching data:', error);
+    //   }
+    // };
+    // useEffect(() => {
+    //   fetchQueue();
+    // //   setTimeout(() => {
+    // //     setFacultyFlag(true);
+    // // }, 2000);
+    //   const intervalId = setInterval(fetchQueue, 5000);
 
-      // Clean up the interval when the component unmounts
-      return () => clearInterval(intervalId);
+    //   // Clean up the interval when the component unmounts
+    //   return () => clearInterval(intervalId);
 
    
-      // const eventSource = new EventSource('http://localhost/qsrv/index.php');
-  
-      // eventSource.onmessage = (event) => {
-      //   const data = JSON.parse(event.data);
-      //   setMessages((prevMessages) => [...prevMessages, data.message]);
-      //   console.log(data.message);
-        
-      // };
-  
-      // return () => {
-      //   eventSource.close();
-      // };
-      // if (!hasData) {
-      //   fetchQueue();
-      // }
-    }, []);
+     
+    // }, []);
 
 
 
@@ -107,12 +94,19 @@ const Dashboard = () => {
 
     //main UI
   return (
-    <div className=''>
-     
-    
-     <DashView />
-   
-    </div>
+    <>
+          <div className='w-[100%] relative flex flex-row'>
+            <div className='flex-initial w-[30%]'>
+              <FacultyTracker />
+              
+            
+            </div>
+              <div className='flex-1 w-[70%] p-3 fixed lg:top-8 xl:top-12 2xl:top-28 right-0'>
+              <Queue />
+              </div>
+            
+          </div>
+        </>
   );
 };
 
