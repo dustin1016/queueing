@@ -47,7 +47,7 @@ export default function Window() {
 
         async function fetchNum(cmd) {
           setErrorMsg(null);
-      
+          setMyNum(null)
           try {
             const response = await fetch('http://192.168.10.186/qsrv/data.php/fetchNum',
              {
