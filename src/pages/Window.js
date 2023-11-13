@@ -39,6 +39,11 @@ export default function Window() {
       
         }, []);
 
+        useEffect(()=>{
+          fetchNum(1);
+          
+        }, [myWindow]);
+
 
         async function fetchNum(cmd) {
           setErrorMsg(null);
@@ -132,7 +137,7 @@ export default function Window() {
               setIsNumber(true);
               setMyWindow(inputValue);
               //fetch the number being served for the set window number
-              fetchNum(1);
+              // fetchNum(1);
             } else {
               setIsNumber(false)
             }
@@ -170,9 +175,11 @@ export default function Window() {
            <p className="text-2xl text-black mb-3">
               Currently Serving:
            </p>
+              {errorMsg === null && 
                <p className={`text-4xl font-bold ${numServed ? 'text-green-600' : 'text-black'} mb-3`}>
                 {myNum}
               </p>
+              }
            </>
                 : <p className="text-md text-black mb-3">
                 No number being served
