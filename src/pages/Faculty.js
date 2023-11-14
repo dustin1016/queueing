@@ -5,7 +5,9 @@ const status = [
   "in",
   "out",
   "on leave",
-  "on travel"
+  "on travel",
+  "in-class",
+  "admin"
 ];
 const Faculty = () => {
     
