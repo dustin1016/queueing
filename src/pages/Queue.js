@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import FacultyTracker from './FacultyTracker';
 import Idle from './Idle';
 import Clock from './Clock';
-
+import BldgImage from '../images/bldg.png';
 const Queue = () => {
 
   
@@ -14,7 +14,7 @@ const Queue = () => {
     const fetchQueue = async () => {
       try {
     
-        const response = await fetch('http://192.168.10.186/qsrv/data.php/getActiveQ');
+        const response = await fetch('http://localhost/qsrv/data.php/getActiveQ');
         const jsonData = await response.json();
         // setData(jsonData);
        
@@ -92,7 +92,7 @@ const Queue = () => {
 
     //main UI
   return (
-    <div className=''>
+    <div>
      
     
      {hasData ? <DashView /> : <Idle />}

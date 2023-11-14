@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import FacultyTracker from './FacultyTracker';
 import Clock from './Clock';
 import Queue from './Queue';
+import BldgImage from '../images/bldg.png';
 const Dashboard = () => {
 
   
@@ -13,7 +14,7 @@ const Dashboard = () => {
     // const fetchQueue = async () => {
     //   try {
     
-    //     const response = await fetch('http://192.168.10.186/qsrv/data.php/getActiveQ');
+    //     const response = await fetch('http://localhost/qsrv/data.php/getActiveQ');
     //     const jsonData = await response.json();
     //     // setData(jsonData);
        
@@ -94,7 +95,7 @@ const Dashboard = () => {
 
     //main UI
   return (
-    <>
+    <div className='relative'>
           <div className='w-[100%] relative flex flex-row'>
             <div className='flex-initial w-[30%]'>
               <FacultyTracker />
@@ -102,19 +103,20 @@ const Dashboard = () => {
             
             </div>
             <div>
-            <div className='flex flex-row mb-6 p-3 items-center justify-center'>
+            <div className='flex flex-row mb-6 p-3 items-center justify-center ' >
                 <img src='images/cba-logo.png' height={150} width={150} />
                 <h2 className='text-center lg:text-2xl xl:text-4xl font-bold ml-3'>College of Business and Accountancy</h2>
               </div>
 
-              <div className='flex-1 w-[70%] p-3 fixed lg:top-8 xl:top-12 2xl:top-28 right-0'>
+              <div className='flex-1 w-[70%] p-3 fixed lg:top-8 xl:top-12 2xl:top-28 right-0 bg-cover ' >
              
               <Queue />
               </div>
             
             </div>
           </div>
-        </>
+          <img src={BldgImage} className='absolute right-0 bottom-0' />
+        </div>
   );
 };
 

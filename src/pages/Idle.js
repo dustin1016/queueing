@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
-
+import Clock from './Clock';
 const responsive = {
     desktop: {
         breakpoint: { max: 6000, min: 1024 },
@@ -58,7 +58,9 @@ const Idle = () => {
     }
    
         return (
-          
+          <div>
+
+         
             <div className="w-3/4 p-2 mx-auto">
         <Carousel
             swipeable={false}
@@ -95,6 +97,8 @@ const Idle = () => {
             })}
       
           </Carousel>
+          </div>
+          <Clock />
           </div>
         );
     
