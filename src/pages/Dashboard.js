@@ -101,10 +101,18 @@ const Dashboard = () => {
               
             
             </div>
+            <div>
+            <div className='flex flex-row mb-6 p-3 items-center justify-center'>
+                <img src='images/cba-logo.png' height={150} width={150} />
+                <h2 className='text-center lg:text-2xl xl:text-4xl font-bold ml-3'>College of Business and Accountancy</h2>
+              </div>
+
               <div className='flex-1 w-[70%] p-3 fixed lg:top-8 xl:top-12 2xl:top-28 right-0'>
+             
               <Queue />
               </div>
             
+            </div>
           </div>
         </>
   );

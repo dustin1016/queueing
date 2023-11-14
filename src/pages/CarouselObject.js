@@ -84,7 +84,7 @@ const CarouselObject = ({deptName, facultyList, carouselSPeed}) => {
                   <div className="w-full" key={item.faculty_idx}>
                     <div  className="flex flex-row justify-start items-center">
                       
-                      <div className={`w-72 grow h-72 md:h-20 md:w-20 lg:h-28 lg:w-28 xl:h-28 xl:w-28 mxl:h-72 mxl:w-72  rounded-full`}>
+                      <div className={`w-72 h-72 md:h-20 md:w-20 lg:h-28 lg:w-28 xl:h-28 xl:w-28 mxl:h-72 mxl:w-72  rounded-full`}>
                           <img src={imgpath} className="h-full w-full rounded-full object-cover object-top" />
                       </div>
                       <div className="flex flex-col ml-6">

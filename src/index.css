@@ -34,6 +34,11 @@ code {
     monospace;
 }
 
+.custom-carousel-item {
+  transition: opacity 0.5s ease;
+  
+}
+
 @keyframes fade-in {
   100% {
     opacity: 1;
