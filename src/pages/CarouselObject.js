@@ -80,7 +80,7 @@ const CarouselObject = ({deptName, facultyList, carouselSPeed}) => {
             {facultyList.map((item, index)=>{
 
               const imgpath = item.pic_name !== null ? `http://localhost/qsrv/img/${encodeURIComponent(item.pic_name)}` : 'images/blank.webp';
-              console.log(imgpath);
+          
                 return (
                   <div className="w-full" key={item.faculty_idx}>
                     <div  className="flex flex-row justify-start items-center">
