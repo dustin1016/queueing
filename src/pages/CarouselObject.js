@@ -36,6 +36,7 @@ const CarouselObject = ({deptName, facultyList, carouselSPeed}) => {
           color = 'text-green-700'
           break;
           case "on leave":
+        
             color = 'text-rose-600'
             break;
             case "on travel":
@@ -47,7 +48,7 @@ const CarouselObject = ({deptName, facultyList, carouselSPeed}) => {
       }
 
       return (
-        <p className={`text-lg mxl:text-2xl font-semibold ${color} capitalize`}>{stat}</p>
+        <p className={`text-lg mxl:text-2xl font-semibold  ${color} capitalize`}>{stat}</p>
       )
     }
 
@@ -78,14 +79,14 @@ const CarouselObject = ({deptName, facultyList, carouselSPeed}) => {
           >
             {facultyList.map((item, index)=>{
 
-              const imgpath = item.pic_name !== null ? "http://localhost/qsrv/img/"+item.pic_name : 'images/blank.webp';
-              // console.log(imgpath);
+              const imgpath = item.pic_name !== null ? `http://localhost/qsrv/img/${encodeURIComponent(item.pic_name)}` : 'images/blank.webp';
+              console.log(imgpath);
                 return (
                   <div className="w-full" key={item.faculty_idx}>
                     <div  className="flex flex-row justify-start items-center">
                       
-                      <div className={`w-72 h-72 md:h-20 md:w-20 lg:h-28 lg:w-28 xl:h-28 xl:w-28 mxl:h-72 mxl:w-72  rounded-full`}>
-                          <img src={imgpath} className="h-full w-full rounded-full object-cover object-top" />
+                      <div className={`w-72 h-72 md:h-20 md:w-20 lg:h-28 lg:w-28 xl:h-28 xl:w-28 mxl:h-72 mxl:w-72 bg-cover bg-top rounded-full`} style={{ backgroundImage: `url(${imgpath})` }} >
+                          {/* <img src={imgpath} className="h-full w-full rounded-full object-cover object-top" /> */}
                       </div>
                       <div className="flex flex-col ml-6">
                         <p className="text-2xl font-semibold">{item.name}</p>
