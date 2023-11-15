@@ -70,7 +70,7 @@ const Idle = () => {
             ssr={true} // means to render carousel on server-side.
             infinite={true}
             autoPlay={true}
-            autoPlaySpeed={4000}
+            autoPlaySpeed={10000}
             keyBoardControl={true}
             customTransition="all .2 ease-in"
             transitionDuration={2000}
@@ -88,8 +88,8 @@ const Idle = () => {
 
              return (
                 <div key={index} className="custom-carousel-item mt-6">
-                    <h1 className="font-bold text-black text-lg  lg:text-6xl uppercase mb-4">{item.title}</h1>
-                <p dangerouslySetInnerHTML={{ __html: item.content }} className="text-lg lg:text-3xl text-black text-justify">
+                    <h1 className="font-bold text-black text-lg  lg:text-6xl xl:text-8xl uppercase mb-4">{item.title}</h1>
+                <p dangerouslySetInnerHTML={{ __html: item.content }} className="text-lg lg:text-3xl xl:text-4xl text-black text-justify">
                     
                         </p>
                     </div>
