@@ -89,7 +89,7 @@ const Dashboard = () => {
             
             </div>
           </div>
-          <img src={BldgImage} className='absolute right-0 bottom-0' />
+          <img src={BldgImage} className='absolute right-0 bottom-0 -z-50' />
         </div>
   );
 };
