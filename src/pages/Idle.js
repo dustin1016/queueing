@@ -87,7 +87,7 @@ const Idle = () => {
             {idleItems.map((item, index)=>{
 
              return (
-                <div key={index} className="custom-carousel-item mt-6">
+                <div key={index} className="custom-carousel-item mt-20">
                     <h1 className="font-bold text-black text-lg  lg:text-6xl xl:text-8xl uppercase mb-4">{item.title}</h1>
                 <p dangerouslySetInnerHTML={{ __html: item.content }} className="text-lg lg:text-3xl xl:text-4xl text-black text-justify">
                     
