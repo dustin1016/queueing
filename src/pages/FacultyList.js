@@ -86,7 +86,7 @@ const ListFaculty = () => {
 
       return (
         <div className='bg-gradient-to-r from-amber-400 to-amber-600  h-screen px-3 pt-3'>
-            {/* {CarouselObject(nextDept, deptName, filteredList)} */}
+            <h1 className='uppercase text-4xl text-black font-bold text-center'>Faculty locator</h1>
 
             {hasData ? <CarouselGroup /> : <Loader />}
         </div>

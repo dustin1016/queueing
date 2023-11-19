@@ -28,7 +28,7 @@ const IdleCarousel = () => {
   }, [currentItemIndex, idleItems]);
 
   return (
-    <div className={`idle-carousel-container mt-20 ${idleItems[currentItemIndex].isVid ? 'w-[90%] p-4' : 'w-3/4 p-2'}   mx-auto`}>
+    <div className={`idle-carousel-container  ${idleItems[currentItemIndex].isVid ? 'w-[90%] p-4 mt-32' : 'w-3/4 p-2 mt-20'}   mx-auto`}>
       {
         idleItems[currentItemIndex].isVid ? (
           <div className={`idle-carousel-item ${fadeOut ? 'fade-out' : 'fade-in'}`}>
