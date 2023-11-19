@@ -39,6 +39,24 @@ code {
   
 }
 
+
+.idle-carousel-container {
+  position: relative;
+}
+
+.idle-carousel-item {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.idle-carousel-item.fade-out {
+  opacity: 0;
+}
+
+.idle-carousel-item.fade-in {
+  opacity: 1;
+}
+
 @keyframes fade-in {
   100% {
     opacity: 1;

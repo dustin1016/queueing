@@ -3,6 +3,7 @@ import FacultyTracker from './FacultyTracker';
 import Idle from './Idle';
 import Clock from './Clock';
 import BldgImage from '../images/bldg.png';
+import IdleCarousel from './IdleCarousel';
 const Queue = () => {
 
   
@@ -95,7 +96,7 @@ const Queue = () => {
     <div>
      
     
-     {hasData ? <DashView /> : <Idle />}
+     {hasData ? <DashView /> : <IdleCarousel />}
    
     </div>
   );
