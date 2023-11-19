@@ -64,33 +64,7 @@ const Dashboard = () => {
         )
     }
 
-    function DashView() {
-      return (
-        <>
-          <div className='w-[100%] relative flex flex-row'>
-            <div className='flex-initial w-[30%]'>
-              <FacultyTracker />
-              
-            
-            </div>
-              <div className='flex-1 w-[70%] p-3 fixed lg:top-8 xl:top-12 2xl:top-28 right-0'>
-              <div className='flex flex-row mb-6 items-center justify-center'>
-                <img src='images/cba-logo.png' height={150} width={150} />
-                <h2 className='text-center lg:text-2xl xl:text-6xl font-bold ml-6'>College of Business and Accountancy</h2>
-              </div>
-                <p className='text-6xl font-bold text-center text-slate-800 my-6'>NOW SERVING:</p>
-                <div className='flex flex-row justify-evenly'>
-                  {FlexBox(1)}
-                  {FlexBox(2)}
-                  {FlexBox(3)}
-                </div>
-                <Clock />
-              </div>
-            
-          </div>
-        </>
-      );
-    }
+    
 
 
     //main UI
@@ -115,7 +89,7 @@ const Dashboard = () => {
             
             </div>
           </div>
-          <img src={BldgImage} className='absolute right-0 bottom-0' />
+          <img src={BldgImage} className='absolute right-0 bottom-0 -z-50' />
         </div>
   );
 };
