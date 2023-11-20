@@ -36,7 +36,7 @@ const Faculty = () => {
     
     const fetchList = async()=> {
         try {
-            const response = await fetch('http://localhost/qsrv/data.php/faculties');
+            const response = await fetch('http://10.125.1.10/qsrv/data.php/faculties');
             const jsonData = await response.json();
             // setData(jsonData);
            
@@ -83,7 +83,7 @@ const Faculty = () => {
       }
 
       const FacultyListCard = React.memo(({ id, name, img }) => {
-        const imgpath = img !== null ? "http://localhost/qsrv/img/"+img : 'images/blank.webp';
+        const imgpath = img !== null ? "http://10.125.1.10/qsrv/img/"+img : 'images/blank.webp';
        
         return (
             <div onClick={()=>handleFacultyClick(id)} className=" border-b cursor-pointer hover:bg-slate-500 border-black w-full p-3 flex flex-row items-center">
@@ -129,7 +129,7 @@ const Faculty = () => {
 
       const updateFacultyStatus = async(status) => {
         try {
-          const response = await fetch('http://localhost/qsrv/data.php/updateFacultyStatus',
+          const response = await fetch('http://10.125.1.10/qsrv/data.php/updateFacultyStatus',
           {
             method: 'POST',
             headers: {
@@ -195,7 +195,7 @@ const Faculty = () => {
    
       function SelectedFaculty(){
           
-          const imgpath = selectedFaculty !== null ? "http://localhost/qsrv/img/"+selectedFaculty?.pic_name : 'images/blank.webp';
+          const imgpath = selectedFaculty !== null ? "http://10.125.1.10/qsrv/img/"+selectedFaculty?.pic_name : 'images/blank.webp';
         return(
           <div className="flex flex-col md:flex-row border border-slate-800 rounded-md p-4">
             <div className="flex flex-col items-center justify-center mb-4">

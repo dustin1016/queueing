@@ -15,7 +15,7 @@ const Queue = () => {
     const fetchQueue = async () => {
       try {
     
-        const response = await fetch('http://localhost/qsrv/data.php/getActiveQ');
+        const response = await fetch('http://10.125.1.10/qsrv/data.php/getActiveQ');
         const jsonData = await response.json();
         // setData(jsonData);
        

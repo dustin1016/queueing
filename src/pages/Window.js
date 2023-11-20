@@ -49,7 +49,7 @@ export default function Window() {
           setErrorMsg(null);
           setMyNum(null)
           try {
-            const response = await fetch('http://localhost/qsrv/data.php/fetchNum',
+            const response = await fetch('http://10.125.1.10/qsrv/data.php/fetchNum',
              {
               method: 'POST',
               headers: {
@@ -83,7 +83,7 @@ export default function Window() {
           //set the current number's status as served in UI
           setNumServed(true);
           try {
-            const response = await fetch('http://localhost/qsrv/data.php/serveNext',
+            const response = await fetch('http://10.125.1.10/qsrv/data.php/serveNext',
              {
               method: 'POST',
               headers: {

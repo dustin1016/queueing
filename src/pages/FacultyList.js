@@ -55,7 +55,7 @@ const ListFaculty = () => {
       const fetchList = async()=> {
         setHasData(false)
         try {
-            const response = await fetch('http://localhost/qsrv/data.php/faculties');
+            const response = await fetch('http://10.125.1.10/qsrv/data.php/faculties');
             const jsonData = await response.json();
             // setData(jsonData);
            
@@ -86,7 +86,7 @@ const ListFaculty = () => {
 
       return (
         <div className='bg-gradient-to-r from-amber-400 to-amber-600  h-screen px-3 pt-3'>
-            <h1 className='uppercase text-4xl text-black font-bold text-center'>Faculty locator</h1>
+            <h1 className='uppercase text-4xl lg:text-3xl text-black font-bold text-center'>Faculty locator</h1>
 
             {hasData ? <CarouselGroup /> : <Loader />}
         </div>

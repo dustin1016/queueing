@@ -79,7 +79,7 @@ const CarouselObject = ({deptName, facultyList, carouselSPeed}) => {
           >
             {facultyList.map((item, index)=>{
 
-              const imgpath = item.pic_name !== null ? `http://localhost/qsrv/img/${encodeURIComponent(item.pic_name)}` : 'images/blank.webp';
+              const imgpath = item.pic_name !== null ? `http://10.125.1.10/qsrv/img/${encodeURIComponent(item.pic_name)}` : 'images/blank.webp';
           
                 return (
                   <div className="w-full" key={item.faculty_idx}>

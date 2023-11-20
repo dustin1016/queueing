@@ -36,7 +36,7 @@ export default function Client()
   }
   const fetchQueue = async () => {
     try {
-      const response = await fetch('http://localhost/qsrv/data.php/getQueue');
+      const response = await fetch('http://10.125.1.10/qsrv/data.php/getQueue');
       const jsonData = await response.json();
       // setData(jsonData);
      
@@ -55,7 +55,7 @@ export default function Client()
 
   async function serveNumber(index) {
     try {
-      const response = await fetch('http://localhost/qsrv/data.php/serve',
+      const response = await fetch('http://10.125.1.10/qsrv/data.php/serve',
        {
         method: 'POST',
         headers: {
@@ -75,7 +75,7 @@ export default function Client()
   async function insertData(purpose)  {
   
     try {
-      const response = await fetch('http://localhost/qsrv/data.php/insert',
+      const response = await fetch('http://10.125.1.10/qsrv/data.php/insert',
        {
         method: 'POST',
         headers: {
