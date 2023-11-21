@@ -14,7 +14,7 @@ const Dashboard = () => {
     // const fetchQueue = async () => {
     //   try {
     
-    //     const response = await fetch('http://10.125.1.10/qsrv/data.php/getActiveQ');
+    //     const response = await fetch('http://10.125.1.10/data.php/getActiveQ');
     //     const jsonData = await response.json();
     //     // setData(jsonData);
        
@@ -78,7 +78,7 @@ const Dashboard = () => {
             </div>
             <div>
             <div className='flex flex-row mb-6 p-3 items-center justify-center ' >
-                <img src='images/cba-logo.png' height={150} width={150} />
+                <img src='images-logo.png' height={150} width={150} />
                 <h2 className='text-center lg:text-2xl xl:text-4xl font-bold ml-3'>College of Business and Accountancy</h2>
               </div>
 

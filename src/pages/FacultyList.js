@@ -55,7 +55,7 @@ const ListFaculty = () => {
       const fetchList = async()=> {
         setHasData(false)
         try {
-            const response = await fetch('http://10.125.1.10/qsrv/data.php/faculties');
+            const response = await fetch('http://10.125.1.10/data.php/faculties');
             const jsonData = await response.json();
             // setData(jsonData);
            
