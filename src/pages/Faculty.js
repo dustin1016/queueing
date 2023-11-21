@@ -88,7 +88,7 @@ const Faculty = () => {
         return (
             <div onClick={()=>handleFacultyClick(id)} className=" border-b cursor-pointer hover:bg-slate-500 border-black w-full p-3 flex flex-row items-center">
                 <img src={imgpath} height={50} width={50} className="rounded-full object-cover object-top" />
-                <p className="text-lg ml-3">{name}</p>
+                <p className="text-md lg:text-lg ml-3">{name}</p>
             </div>
         );
       })
@@ -116,7 +116,7 @@ const Faculty = () => {
       />
 
                 <p className="text-center mb-3 font-bold text-lg">Faculty List</p>
-                    <div className="w-64 overflow-y-auto h-96 shadow-lg shadow-amber-400/40 border-t border-black">
+                    <div className="w-56 lg:w-64 overflow-y-auto h-96 shadow-lg shadow-amber-400/40 border-t border-black">
                     {   filteredList?.map((item, index)=>{
                         return(
                             <FacultyListCard id={item.faculty_idx} name={item.name} img={item.pic_name} key={item.faculty_idx} />
@@ -184,7 +184,7 @@ const Faculty = () => {
         return (
           <button
             onClick={() => onClick(status)}
-            className={`uppercase text-xl p-3 border border-gray hover:border-black rounded-md ${
+            className={`uppercase text-sm lg:text-xl p-3 border border-gray hover:border-black rounded-md ${
               isActive ? "bg-green-600 text-black" : ""
             }`}
           >

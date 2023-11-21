@@ -117,14 +117,14 @@ export default function Client()
         <div>
 
        
-          <div className="p-2 grid grid-cols-6 gap-4 mt-4">
+          <div className="p-2 grid grid-cols-2 lg:grid-cols-6 gap-4 mt-4">
             {viewData.map((item, index) => {
               return(
                 <div key={index} className="border-2 border-gray-800 rounded-lg p-3 text-center">
                   
                   <p className="text-3xl">{item.q_num}</p>
                   <p>{item.q_purpose}</p>
-                  <button onClick={()=>{serveNumber(item.q_index)}} className="border border-gray-800 bg-green-700 text-black text-md py-2 px-4 rounded-md mt-3">Serve</button>
+                  {/* <button onClick={()=>{serveNumber(item.q_index)}} className="border border-gray-800 bg-green-700 text-black text-md py-2 px-4 rounded-md mt-3">Serve</button> */}
                 </div>
               );
             })}
