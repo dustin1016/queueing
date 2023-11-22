@@ -85,11 +85,11 @@ const CarouselObject = ({deptName, facultyList, carouselSPeed}) => {
                   <div className="w-full" key={item.faculty_idx}>
                     <div  className="flex flex-row justify-start items-center">
                       
-                      <div className={`w-64 h-64 md:h-20 md:w-20 lg:h-28 lg:w-28 xl:h-28 xl:w-28 mxl:h-64 mxl:w-64 bg-cover bg-top rounded-full`} style={{ backgroundImage: `url(${imgpath})` }} >
+                      <div className={`w-56 h-56 md:h-20 md:w-20 lg:h-28 lg:w-28 xl:h-28 xl:w-28 mxl:h-56 mxl:w-56 bg-cover bg-top rounded-full`} style={{ backgroundImage: `url(${imgpath})` }} >
                           {/* <img src={imgpath} className="h-full w-full rounded-full object-cover object-top" /> */}
                       </div>
                       <div className="flex flex-col ml-6">
-                        <p className="text-2xl font-semibold">{item.name}</p>
+                        <p className="text-xl font-semibold">{item.name}</p>
                         <ColoredText stat={item.status} />
                       </div>
 
@@ -104,7 +104,7 @@ const CarouselObject = ({deptName, facultyList, carouselSPeed}) => {
 
     return (
       <div className="my-4">
-        <h2 className="text-2xl text-black font-bold text-center mb-3">{deptName}</h2>
+        <h2 className="text-xl text-black font-semibold text-center mb-3">{deptName}</h2>
         {/* <button className="text-2xl p-3 border border-black" onClick={nextDept}>next dept</button> */}
        <CarouselItem />
         
